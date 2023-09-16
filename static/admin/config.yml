@@ -22,7 +22,7 @@ collections:
         widget: markdown
       - label: Tags
         name: tags
-        widget: string
+        widget: list
       - label: Images
         name: images
         widget: list

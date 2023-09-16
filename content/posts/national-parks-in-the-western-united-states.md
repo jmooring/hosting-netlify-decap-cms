@@ -1,7 +1,9 @@
 ---
 title: National Parks in the Western United States
 date: 2023-09-16T19:24:38.985Z
-tags: parks, united states
+tags:
+  - parks
+  - united states
 images:
   - path: images/uploads/d.jpg
     alt: Petrified Forest National Park

@@ -1,7 +1,10 @@
 ---
 title: Kittens
 date: 2023-09-16T19:22:36.024Z
-tags: kittens, cats, cute
+tags: 
+  - kittens
+  - cats
+  - cute
 images:
   - path: images/uploads/a.jpg
     alt: A kitten
