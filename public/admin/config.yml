@@ -24,9 +24,6 @@ collections:
         name: draft
         widget: boolean
         default: true
-      - label: Tags
-        name: tags
-        widget: string
       - label: Images
         name: images
         widget: list
