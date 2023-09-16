@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := .Date | time.Format ":date_long" }}
+  <div><time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></div>
+
+  {{ range .Params.images }}
+    {{ $alt := or .alt "" }}
+    {{ with resources.Get .path }}
+      {{ with .Resize "200x webp" }}
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $alt }}">
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ .Content }}
+
+  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+{{ end }}
