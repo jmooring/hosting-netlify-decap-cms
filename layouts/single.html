@@ -1,0 +1,41 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := .Date | time.Format ":date_long" }}
+  <div><time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></div>
+
+  {{ range .Params.images }}
+    {{ $r := . }}
+    {{ $alt := or .alt "" }}
+    {{ $u := urls.Parse .path }}
+      {{ if $u.IsAbs }}
+      {{ with try (resources.GetRemote $u.String) }}
+        {{ with .Err }}
+          {{ errorf "Unable to get remote resource %s: %s" $u.String . }}
+        {{ else with .Value}}
+          {{ $r = . }}
+        {{ else }}
+          {{ errorf "Unable to get remote resource %s" $u.String }}
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ with resources.Get .path }}
+        {{ $r = . }}
+      {{ else }}
+        {{ errorf "Unable to get remote resource %s" $u.String }}
+      {{ end }}
+    {{ end }}
+
+    {{ with $r }}
+      {{ with .Resize "200x webp" }}
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $alt }}">
+      {{ end }}
+    {{ end }}
+
+  {{ end }}
+
+  {{ .Content }}
+
+  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+{{ end }}

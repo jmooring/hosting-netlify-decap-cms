@@ -1,0 +1,43 @@
+display_url: https://hosting-netlify-decap-cms.netlify.app
+media_folder: assets/images/uploads
+public_folder: images/uploads
+publish_mode: editorial_workflow
+site_url: https://hosting-netlify-decap-cms.netlify.app
+backend:
+  name: git-gateway
+  branch: main
+collections:
+  - name: posts
+    label: Posts
+    folder: content/posts
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Date
+        name: date
+        widget: datetime
+      - label: Body
+        name: body
+        widget: markdown
+      - label: Tags
+        name: tags
+        widget: select
+        multiple: true
+        options:
+          - cat
+          - cute
+          - kitten
+          - parks
+          - united states
+          - foo
+          - bar
+          - baz
+      - label: Images
+        name: images
+        widget: list
+        fields:
+          - {name: path, label: Image, widget: image}
+          - {name: alt, label: Alt, widget: string}
