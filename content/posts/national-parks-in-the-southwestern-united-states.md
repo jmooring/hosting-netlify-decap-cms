@@ -1,7 +1,7 @@
 ---
 title: National Parks in the Southwestern United States
 date: 2023-09-16T18:22:47.854Z
-draft: true
+draft: false
 tags: national -park, arizona
 images:
   - path: images/uploads/d.jpg
