@@ -28,5 +28,5 @@ collections:
         name: images
         widget: list
         fields:
-          - {name: image, label: Image, widget: image}
+          - {name: path, label: Image, widget: image}
           - {name: alt, label: Alt, widget: string}
