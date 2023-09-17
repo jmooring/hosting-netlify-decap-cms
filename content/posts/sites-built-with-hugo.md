@@ -2,8 +2,8 @@
 title: Sites built with Hugo
 date: 2023-09-16T20:06:15.810Z
 tags:
-  - hugo
-  - showcases
+  - foo
+  - bar
 images:
   - path: images/uploads/docker.png
     alt: Screen capture of Docker site
