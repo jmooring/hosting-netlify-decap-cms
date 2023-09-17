@@ -22,7 +22,17 @@ collections:
         widget: markdown
       - label: Tags
         name: tags
-        widget: list
+        widget: select
+        multiple: true
+        options:
+          - cat
+          - cute
+          - kitten
+          - parks
+          - united states
+          - foo
+          - bar
+          - baz
       - label: Images
         name: images
         widget: list
