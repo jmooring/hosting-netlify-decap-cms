@@ -10,14 +10,14 @@
     {{ $alt := or .alt "" }}
     {{ $u := urls.Parse .path }}
       {{ if $u.IsAbs }}
-      {{ with resources.GetRemote $u.String }}
+      {{ with try (resources.GetRemote $u.String) }}
         {{ with .Err }}
           {{ errorf "Unable to get remote resource %s: %s" $u.String . }}
-        {{ else }}
+        {{ else with .Value}}
           {{ $r = . }}
+        {{ else }}
+          {{ errorf "Unable to get remote resource %s" $u.String }}
         {{ end }}
-      {{ else }}
-        {{ errorf "Unable to get remote resource %s" $u.String }}
       {{ end }}
     {{ else }}
       {{ with resources.Get .path }}
