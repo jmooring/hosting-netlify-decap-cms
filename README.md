@@ -1,7 +1,5 @@
 # Hosting Test - Netlify with Decap CMS
 
-Requires Hugo v0.146.7 or later.
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d02a1693-82f9-43ea-b2df-07cbc220428d/deploy-status)](https://app.netlify.com/sites/hosting-netlify-decap-cms/deploys)
 
 Files of interest:
